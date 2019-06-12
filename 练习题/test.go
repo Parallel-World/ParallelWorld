@@ -39,30 +39,66 @@ import (
 // 	}
 // }
 
-func test(str string) (charCount, numCount, spaceCount, otherCount int) {
-	uftChars := []rune(str)
-	for i := 0; i < len(uftChars); i++ {
-		if uftChars[i] >= 'a' && uftChars[i] <= 'z' || uftChars[i] >= 'A' && uftChars[i] <= 'Z' {
-			charCount++
-			continue
-		}
-		if uftChars[i] >= '0' && uftChars[i] <= '9' {
-			numCount++
-			continue
-		}
-		if uftChars[i] == ' ' {
-			spaceCount++
-			continue
-		}
-		otherCount++
-	}
-	return
-}
+// func test(str string) (charCount, numCount, spaceCount, otherCount int) {
+// 	uftChars := []rune(str)
+// 	for i := 0; i < len(uftChars); i++ {
+// 		if uftChars[i] >= 'a' && uftChars[i] <= 'z' || uftChars[i] >= 'A' && uftChars[i] <= 'Z' {
+// 			charCount++
+// 			continue
+// 		}
+// 		if uftChars[i] >= '0' && uftChars[i] <= '9' {
+// 			numCount++
+// 			continue
+// 		}
+// 		if uftChars[i] == ' ' {
+// 			spaceCount++
+// 			continue
+// 		}
+// 		otherCount++
+// 	}
+// 	return
+// }
 
+// func example3() {
+// 	var str string = "sdfsd   我123+——"
+// 	charCount, numCount, spCount, other := test(str)
+// 	fmt.Printf("字母有%d,数字有%d,空格有%d,其他有%d", charCount, numCount, spCount, other)
+// }
+
+// func inser_sort(a [8]int) [8]int {
+// 	for i := 1; i < len(a); i++ {
+// 		for j := i; j > 0; j-- {
+// 			if a[j] < a[j-1] {
+// 				a[j], a[j-1] = a[j-1], a[j]
+// 			} else {
+// 				break
+// 			}
+// 		}
+// 	}
+// 	return a
+// }
+// func example3() {
+// 	var i [8]int = [8]int{8, 3, 2, 9, 4, 6, 10, 0}
+// 	j := inser_sort(i)
+// 	fmt.Println(i)
+// 	fmt.Println(j)
+// }
+
+func select_sort(a [8]int) [8]int {
+	for i := 0; i < len(a); i++ {
+		for j := i + 1; j < len(a); j++ {
+			if a[j] < a[i] {
+				a[i], a[j] = a[j], a[i]
+			}
+		}
+	}
+	return a
+}
 func example3() {
-	var str string = "sdfsd   我123+——"
-	charCount, numCount, spCount, other := test(str)
-	fmt.Printf("字母有%d,数字有%d,空格有%d,其他有%d", charCount, numCount, spCount, other)
+	var i [8]int = [8]int{8, 3, 2, 9, 4, 6, 10, 0}
+	j := select_sort(i)
+	fmt.Println(i)
+	fmt.Println(j)
 }
 
 func main() {

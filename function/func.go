@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 // func sayHello() {
@@ -91,18 +92,60 @@ import (
 // 	fmt.Printf("ret=%d\n", ret)
 // }
 
-func add(base int) func(int) int {
-	return func(i int) int {
-		base += i
-		return base
-	}
-}
+// func add(base int) func(int) int {
+// 	return func(i int) int {
+// 		base += i
+// 		return base
+// 	}
+// }
+// func testClosure1() {
+// 	tmp1 := add(10)
+// 	fmt.Println(tmp1(1), tmp1(2))
+// 	tmp2 := add(100)
+// 	fmt.Println(tmp2(1), tmp2(2))
+// }
+
+// func test(suffix string) func(string) string {
+// 	return func(name string) string {
+// 		if !strings.HasSuffix(name, suffix) {
+// 			return name + suffix
+// 		}
+// 		return name
+// 	}
+// }
+// func testClosure1() {
+// 	func1 := test(".bmp")
+// 	func2 := test(".jpg")
+// 	fmt.Println(func1("test"))
+// 	fmt.Println(func2("test"))
+// }
+
+// func calc(base int) (func(int) int, func(int) int) {
+// 	add := func(i int) int {
+// 		base += i
+// 		return base
+// 	}
+// 	sub := func(i int) int {
+// 		base -= i
+// 		return base
+// 	}
+// 	return add, sub
+// }
+// func testClosure1() {
+// 	f1, f2 := calc(10)
+// 	fmt.Println(f1(1), f2(2))
+// 	fmt.Println(f1(3), f2(4))
+// 	fmt.Println(f1(5), f2(6))
+// 	fmt.Println(f1(7), f2(8))
+// }
 
 func testClosure1() {
-	tmp1 := add(10)
-	fmt.Println(tmp1(1), tmp1(2))
-	tmp2 := add(100)
-	fmt.Println(tmp2(1), tmp2(2))
+	for i := 0; i < 5; i++ {
+		go func() {
+			fmt.Println(i)
+		}()
+	}
+	time.Sleep(time.Second)
 }
 
 func main() {
