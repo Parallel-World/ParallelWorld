@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+//package main
 
 // if justfy(a int) boll {
 // 	for i:=2;i<a;i++{
@@ -84,25 +80,56 @@ import (
 // 	fmt.Println(j)
 // }
 
-func select_sort(a [8]int) [8]int {
-	for i := 0; i < len(a); i++ {
-		for j := i + 1; j < len(a); j++ {
-			if a[j] < a[i] {
-				a[i], a[j] = a[j], a[i]
-			}
-		}
-	}
-	return a
-}
-func example3() {
-	var i [8]int = [8]int{8, 3, 2, 9, 4, 6, 10, 0}
-	j := select_sort(i)
-	fmt.Println(i)
-	fmt.Println(j)
-}
+// func select_sort(a [8]int) [8]int {
+// 	for i := 0; i < len(a); i++ {
+// 		for j := i + 1; j < len(a); j++ {
+// 			if a[j] < a[i] {
+// 				a[i], a[j] = a[j], a[i]
+// 			}
+// 		}
+// 	}
+// 	return a
+// }
 
-func main() {
+// func select_sort(a [8]int) [8]int{
+// 	for i:= 0;i<len(a);i++{
+// 		for j:=0;j<len(a)-i-1;j++{
+// 			if a[j]>a[j+1]{
+// 				a[j],a[j+1] = a[j+1],a[j]
+// 			}
+// 		}
+// 	}
+// 	return a
+// }
+// func example3() {
+// 	var i [8]int = [8]int{8, 3, 2, 9, 4, 6, 10, 0}
+// 	j := select_sort(i)
+// 	fmt.Println(i)
+// 	fmt.Println(j)
+// }
+
+//func testArray() {
+//	a := [...]int{1, 3, 5, 8, 7}
+//	b := 0
+//	for _, value := range a {
+	//	b += value
+	//}
+	//fmt.println(b)
+//}
+
+// func testArray() {
+// 	a := [...]int{1, 2, 3, 4, 5, 8, 4, 4, 2}
+// 	for i := 0; i < len(a); i++ {
+// 		for j := i + 1; j < len(a); j++ {
+// 			if a[i]+a[j] == 8 {
+// 				printf("(%v,%v)的和等于8", i, j)
+// 		}
+// 	}
+// }
+
+//func main() {
 	// example1()
 	// example2()
-	example3()
-}
+	// example3()
+	//testArray()
+//}
