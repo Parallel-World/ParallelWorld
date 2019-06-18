@@ -1,9 +1,6 @@
 package main
 
-import (
-	"fmt"
-	"math/rand"
-)
+import "fmt"
 
 // func testmap() {
 // 	var a map[string]int
@@ -174,39 +171,123 @@ import (
 // 	fmt.Println("a=", a)
 // }
 
-func test() {
-	var stuMap map[int]map[string]interface{}
-	stuMap = make(map[int]map[string]interface{}, 16)
-	var id = 1
-	var name = "stu01"
-	var score = 79.3
-	var age = 18
-	value, ok := stuMap[id]
-	if !ok {
-		value = make(map[string]interface{}, 8)
+// func test() {
+// 	var stuMap map[int]map[string]interface{}
+// 	stuMap = make(map[int]map[string]interface{}, 16)
+// 	var id = 1
+// 	var name = "stu01"
+// 	var score = 79.3
+// 	var age = 18
+// 	value, ok := stuMap[id]
+// 	if !ok {
+// 		value = make(map[string]interface{}, 8)
+// 	}
+// 	value["id"] = id
+// 	value["name"] = name
+// 	value["score"] = score
+// 	value["age"] = age
+// 	stuMap[id] = value
+// 	fmt.Printf("stuMap:%v\n", stuMap)
+// 	fmt.Printf("stuMap:%#v\n", stuMap)
+// 	for i := 0; i < 10; i++ {
+// 		value, ok := stuMap[i]
+// 		if !ok {
+// 			value = make(map[string]interface{}, 8)
+// 		}
+// 		value["name"] = fmt.Sprintf("stu%d", i)
+// 		value["id"] = i
+// 		value["score"] = rand.Float32() * 100.0
+// 		value["age"] = rand.Intn(100)
+// 		stuMap[i] = value
+// 	}
+// 	fmt.Println(stuMap)
+// 	for k, v := range stuMap {
+// 		fmt.Printf("id=%d stu info=%v\n", k, v)
+// 		fmt.Printf("id=%d stu info=%#v\n", k, v)
+// 	}
+// }
+
+// var (
+// 	coins = 50
+// 	users = []string{
+// 		"Matthew", "Sarah", "Augustus", "Heidi", "Emilie",
+// 		"Peter", "Giana", "Adriano", "Aaron", "Elizabeth",
+// 	}
+// 	distribution = make(map[string]int, len(users))
+// )
+
+// func test() {
+// 	for i := 0; i < len(users); i++ {
+// 		v := 0
+// 		for j := 0; j < len(users[i]); j++ {
+// 			q := string(users[i][j])
+// 			if q == "a" {
+// 				v = v + 1
+// 			} else if q == "A" {
+// 				v = v + 1
+// 			} else if q == "e" {
+// 				v = v + 1
+// 			} else if q == "E" {
+// 				v = v + 1
+// 			} else if q == "i" {
+// 				v = v + 2
+// 			} else if q == "I" {
+// 				v = v + 1
+// 			} else if q == "o" {
+// 				v = v + 3
+// 			} else if q == "O" {
+// 				v = v + 3
+// 			} else if q == "u" {
+// 				v = v + 5
+// 			} else if q == "U" {
+// 				v = v + 5
+// 			}
+// 		}
+// 		distribution[users[i]] = v
+// 		coins = coins - v
+// 	}
+// 	fmt.Printf("每个人分到%v个金币，剩余%d个金币", distribution, coins)
+// }
+
+var (
+	coins = 50
+	users = []string{
+		"Matthew", "Sarah", "Augustus", "Heidi", "Emilie",
+		"Peter", "Giana", "Adriano", "Aaron", "Elizabeth",
 	}
-	value["id"] = id
-	value["name"] = name
-	value["score"] = score
-	value["age"] = age
-	stuMap[id] = value
-	fmt.Printf("stuMap:%v\n", stuMap)
-	fmt.Printf("stuMap:%#v\n", stuMap)
-	for i := 0; i < 10; i++ {
-		value, ok := stuMap[i]
-		if !ok {
-			value = make(map[string]interface{}, 8)
+	distribution = make(map[string]int, len(users))
+)
+
+func calcCoin(username string) int {
+	var sum int = 0
+	for _, char := range username {
+		switch char {
+		case 'a', 'A', 'e', 'E':
+			sum = sum + 1
+		case 'i', 'I':
+			sum = sum + 2
+		case 'o', 'O':
+			sum = sum + 3
+		case 'u', 'U':
+			sum = sum + 5
 		}
-		value["name"] = fmt.Sprintf("stu%d", i)
-		value["id"] = i
-		value["score"] = rand.Float32()*100.0
-		value["age"]=rand.Intn(100)
-		stuMap[i] = value
 	}
-	fmt.Println()
-	for k, v := range stuMap {
-		fmt.Printf("id=%d stu info=%#v\n", k, v)
+	return sum
+}
+
+func distribution_coin() int {
+	var left int = coins
+	for _, username := range users {
+		allCoin := calcCoin(username)
+		left = left - allCoin
+		value, ok := distribution[username]
+		if !ok {
+			distribution[username] = allCoin
+		} else {
+			distribution[username] = value + allCoin
+		}
 	}
+	return left
 }
 
 func main() {
@@ -214,5 +295,10 @@ func main() {
 	// var str = "how do you do?"
 	// result := test(str)
 	// fmt.Printf("result:%v\n", result)
-	test()
+	// test()
+	left := distribution_coin()
+	for username, coin := range distribution {
+		fmt.Printf("user:%s have %d coins\n", username, coin)
+	}
+	fmt.Println("left coin:", left)
 }
