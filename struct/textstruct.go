@@ -3,7 +3,6 @@ package main
 import (
 	// "encoding/json"
 	"fmt"
-	"os"
 )
 
 // type User struct {
@@ -114,86 +113,88 @@ import (
 // 	fmt.Println(date)
 // }
 
-var (
-	AllStudents []*Student
-)
+// var (
+// 	AllStudents []*Student
+// )
 
-func showMenu() {
-	fmt.Println("1.AddStudent")
-	fmt.Println("2.ModifyStudent")
-	fmt.Println("3.ShowAllStudent")
-	fmt.Println("4.exit\n")
-}
+// func showMenu() {
+// 	fmt.Println("1.AddStudent")
+// 	fmt.Println("2.ModifyStudent")
+// 	fmt.Println("3.ShowAllStudent")
+// 	fmt.Println("4.exit\n")
+// }
 
-func inputStu() *Student {
-	var (
-		username string
-		sex      int
-		grade    string
-		score    float32
-	)
-	fmt.Println("please input username:")
-	fmt.Scanf("%s\n", &username)
-	fmt.Println("please input sex:[0|1]")
-	fmt.Scanf("%d\n", &sex)
-	fmt.Println("please input grade:[0-6]")
-	fmt.Scanf("%s\n", &grade)
-	fmt.Println("please input score:[0-100]")
-	fmt.Scanf("%f\n", &score)
-	stu := NewStudent(username, sex, score, grade)
-	return stu
-}
+// func inputStu() *Student {
+// 	var (
+// 		username string
+// 		sex      int
+// 		grade    string
+// 		score    float32
+// 	)
+// 	fmt.Println("please input username:")
+// 	fmt.Scanf("%s\n", &username)
+// 	fmt.Println("please input sex:[0|1]")
+// 	fmt.Scanf("%d\n", &sex)
+// 	fmt.Println("please input grade:[0-6]")
+// 	fmt.Scanf("%s\n", &grade)
+// 	fmt.Println("please input score:[0-100]")
+// 	fmt.Scanf("%f\n", &score)
+// 	stu := NewStudent(username, sex, score, grade)
+// 	return stu
+// }
 
-func AddStudent() {
-	stu := inputStu()
-	for index, v := range AllStudents {
-		if v.Username == stu.Username {
-			fmt.Println("user %s success update\n\n", stu.Username)
-			AllStudents[index] = stu
-			return
-		}
-	}
-	AllStudents = append(AllStudents, stu)
-	fmt.Printf("user %s success insert\n\n", stu.Username)
-}
+// func AddStudent() {
+// 	stu := inputStu()
+// 	for index, v := range AllStudents {
+// 		if v.Username == stu.Username {
+// 			fmt.Println("user %s success update\n\n", stu.Username)
+// 			AllStudents[index] = stu
+// 			return
+// 		}
+// 	}
+// 	AllStudents = append(AllStudents, stu)
+// 	fmt.Printf("user %s success insert\n\n", stu.Username)
+// }
 
-func ModifyStudent() {
-	stu := inputStu()
-	for index, v := range AllStudents {
-		if v.Username == stu.Username {
-			AllStudents[index] = stu
-			fmt.Printf("user %s success update\n\n", stu.Username)
-			return
-		}
-		fmt.Printf("user %s is not found", v.Username)
-	}
-}
+// func ModifyStudent() {
+// 	stu := inputStu()
+// 	for index, v := range AllStudents {
+// 		if v.Username == stu.Username {
+// 			AllStudents[index] = stu
+// 			fmt.Printf("user %s success update\n\n", stu.Username)
+// 			return
+// 		}
+// 		fmt.Printf("user %s is not found", v.Username)
+// 	}
+// }
 
-func ShowAllStudent() {
-	for _, v := range AllStudents {
-		fmt.Println("user:%s info:%#v\n", v.Username, v)
-	}
-}
+// func ShowAllStudent() {
+// 	for _, v := range AllStudents {
+// 		fmt.Println("user:%s info:%#v\n", v.Username, v)
+// 	}
+// }
 
-func teststruct() {
-	for {
-		showMenu()
-		var sel int
-		fmt.Scanf("%d\n", sel)
-		switch sel {
-		case 1:
-			AddStudent()
-		case 2:
-			ModifyStudent()
-		case 3:
-			ShowAllStudent()
-		case 4:
-			os.Exit(0)
-		}
-	}
-}
+// func teststruct() {
+// 	for {
+// 		showMenu()
+// 		var sel int
+// 		fmt.Scanf("%d\n", sel)
+// 		switch sel {
+// 		case 1:
+// 			AddStudent()
+// 		case 2:
+// 			ModifyStudent()
+// 		case 3:
+// 			ShowAllStudent()
+// 		case 4:
+// 			os.Exit(0)
+// 		}
+// 	}
+// }
 
 func main() {
-	teststruct()
+	// teststruct()
 	// inputStu()
+	A := &Student{A: 1}
+	fmt.Printf("%v", A)
 }

@@ -35,31 +35,58 @@ import (
 // 	}
 // 	fmt.Printf("json:%s\n",string(data))
 // }
-type Student struct {
-	Id   int
-	Name string
-	Sex  string
-}
-type Class struct {
-	Name    string
-	Count   int
-	Student []*Student
-}
+// type Student struct {
+// 	Id   int
+// 	Name string
+// 	Sex  string
+// }
+// type Class struct {
+// 	Name    string
+// 	Count   int
+// 	Student []*Student
+// }
 
-var rawJson = `{"Name":"101","Count":0,"Student":[{"Id":0,"Name":"stu0","Sex":"man"},{"Id":1,"Name":"stu1","Sex":"man"},{"Id":2,"Name":"stu2","Sex":"man"},{"Id":3,"Name":"stu3","Sex":"man"},{"Id":4,"Name":"stu4","Sex":"man"},{"Id":5,"Name":"stu5","Sex":"man"},{"Id":6,"Name":"stu6","Sex":"man"},{"Id":7,"Name":"stu7","Sex":"man"},{"Id":8,"Name":"stu8","Sex":"man"},{"Id":9,"Name":"stu9","Sex":"man"}]}`
+// var rawJson = `{"Name":"101","Count":0,"Student":[{"Id":0,"Name":"stu0","Sex":"man"},{"Id":1,"Name":"stu1","Sex":"man"},{"Id":2,"Name":"stu2","Sex":"man"},{"Id":3,"Name":"stu3","Sex":"man"},{"Id":4,"Name":"stu4","Sex":"man"},{"Id":5,"Name":"stu5","Sex":"man"},{"Id":6,"Name":"stu6","Sex":"man"},{"Id":7,"Name":"stu7","Sex":"man"},{"Id":8,"Name":"stu8","Sex":"man"},{"Id":9,"Name":"stu9","Sex":"man"}]}`
 
-func test() {
-	var c1 *Class = &Class{}
-	err := json.Unmarshal([]byte(rawJson), c1)
+// func test() {
+// 	var c1 *Class = &Class{}
+// 	err := json.Unmarshal([]byte(rawJson), c1)
+// 	if err != nil {
+// 		fmt.Println("unmarshal failed")
+// 		return
+// 	}
+// 	fmt.Printf("c1:%#v\n", c1)
+// 	for _, v := range c1.Student {
+// 		fmt.Printf("stu:%#v\n", v)
+// 	}
+// }
+
+type User struct{
+	UserName string
+	NickName string
+	Age int
+	Birthday string
+	Sex string
+	Email string
+	Phone string
+}
+func test(){
+	user1 := &User{
+		UserName:"user01",
+		NickName:"上课",
+		Age : 10,
+		Birthday:"2008",
+		Sex:"男",
+		Email:"123@qq.com",
+		Phone:"110"
+	}
+	data ,err := json.Marshal(user1)
 	if err != nil {
-		fmt.Println("unmarshal failed")
-		return
+		fmt.Println("json marshal failed,err:",err)
 	}
-	fmt.Printf("c1:%#v\n", c1)
-	for _, v := range c1.Student {
-		fmt.Printf("stu:%#v\n", v)
-	}
+	fmt.Printf("%s\n",string(data))
 }
+
 func main() {
 	test()
 }
