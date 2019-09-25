@@ -1,0 +1,8 @@
+user id[2321] is come from china,
+2019-09-24 20:56:05.921user id[2321] is come from china,
+2019-09-24 21:11:17.784 Debug utile.go:9 logger.GetLineInfo user id[2321] is come from china,
+2019-09-24 21:14:05.623 Debug (utile.go:logger.GetLineInfo 9) user id[2321] is come from china,
+2019-09-24 21:19:37.252 Debug (file_test.go:logger.TestFileLogger 9) user id[2321] is come from china
+2019-09-24 21:33:17.494 Debug (file.go:logger.(*FileLogger).Debug 69) user id[2321] is come from china
+2019-09-25 08:41:33.369 Debug (file.go:logger.(*FileLogger).Debug 56) user id[2321] is come from china
+2019-09-25 08:45:35.014 Debug (file.go:logger.(*FileLogger).Debug 56) user id[2321] is come from china

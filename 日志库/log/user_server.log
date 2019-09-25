@@ -1,0 +1,5 @@
+2019-09-25 11:04:17.606 Debug (main.go:main.initLogger 17) init logger success
+2019-09-25 11:04:17.651 Debug (main.go:main.Run 23) user server is running
+2019-09-25 11:04:18.653 Debug (main.go:main.Run 23) user server is running
+2019-09-25 11:04:19.66 Debug (main.go:main.Run 23) user server is running
+2019-09-25 11:04:20.669 Debug (main.go:main.Run 23) user server is running

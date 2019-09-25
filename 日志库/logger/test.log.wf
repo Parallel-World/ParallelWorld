@@ -1,0 +1,16 @@
+test warn log
+test faral log
+test warn log
+test faral log
+test warn log
+test faral log
+test warn log
+test faral log
+test warn log
+test faral log
+2019-09-24 21:33:17.546 Warn (file.go:logger.(*FileLogger).Warn 81) test warn log
+2019-09-24 21:33:17.546 Fatal (file.go:logger.(*FileLogger).Fatal 89) test faral log
+2019-09-25 08:41:33.413 Warn (file.go:logger.(*FileLogger).Warn 77) test warn log
+2019-09-25 08:41:33.413 Fatal (file.go:logger.(*FileLogger).Fatal 91) test faral log
+2019-09-25 08:45:35.059 Warn (file.go:logger.(*FileLogger).Warn 77) test warn log
+2019-09-25 08:45:35.059 Fatal (file.go:logger.(*FileLogger).Fatal 91) test faral log
